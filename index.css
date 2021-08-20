@@ -21,17 +21,17 @@ section {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
-#home{
+#home {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#nav{
+#nav {
     position: fixed;
-    top:0;
+    top: 0;
     width: 100%;
     height: 70px;
     z-index: 3;
@@ -92,38 +92,40 @@ section {
     width: inherit;
     display: flex;
     justify-content: center;
-     z-index: 2;
+    z-index: 2;
+}
+#bars {
+    display: none;
+}
+#close {
+    display: none;
 }
 
-#logo{
+#logo {
     display: none;
     position: absolute;
     font-weight: 400;
     font-size: 15px;
     left: 10px;
     z-index: 2;
-
 }
-#logo::before{
-  content: "";
-  display: block;
-  width: 45px;
-  height:1px;
-  background-color: #7ea1bf;
-  transform: translateX(80px) 
-  rotate(-50deg);
-
-
+#logo::before {
+    content: "";
+    display: block;
+    width: 45px;
+    height: 1px;
+    background-color: #7ea1bf;
+    transform: translateX(80px) rotate(-50deg);
 }
 
-#logo::after{
+#logo::after {
     content: "";
     display: block;
     width: 30px;
-    height:1px;
+    height: 1px;
     background-color: #7ea1bf;
-    transform:  translateX(40px) translateY(-5px) rotate(-48deg);
-  }
+    transform: translateX(40px) translateY(-5px) rotate(-48deg);
+}
 
 #navBarContainer div a {
     padding: 8px 20px;
@@ -189,11 +191,11 @@ section {
 
 @keyframes move {
     from {
-        transform: translateY(0%);
+        transform: translateY(10px);
     }
 
     to {
-        transform: translateY(50%);
+        transform: translateY(20px);
     }
 }
 
@@ -247,7 +249,6 @@ section {
 
 /** About section styling**/
 
-
 #aboutContainer {
     display: flex;
     justify-content: center;
@@ -279,7 +280,6 @@ section {
 
 #aboutContainer p {
     width: 70%;
-    
 }
 
 #aboutContainer h2::after {
@@ -429,21 +429,21 @@ section {
     cursor: pointer;
 }
 
-#square{
+#square {
     position: absolute;
-    top:-10px;
+    top: -10px;
     z-index: -1;
     width: 200px;
     align-self: center;
     border-radius: 20px;
-    background-color: #7EA1BF;
+    background-color: #7ea1bf;
     height: 200px;
 }
 
 #prevIcon a,
 #nextIcon a {
     cursor: pointer;
-    color: #7EA1BF;
+    color: #7ea1bf;
     font-size: 30px;
 }
 
@@ -529,31 +529,81 @@ form #submitButton input {
 }
 
 @media screen and (max-width: 800px) {
-    form{
+    form {
         width: 90%;
+    }
+    #bars {
+        display: block;
+        cursor: pointer;
+        position: relative;
     }
 
     .project {
         margin: 10px;
     }
-   
+    #navBarContainer {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    #logo {
+        display: block;
+    }
+
+    #close {
+        display: flex;
+        justify-content: flex-end;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #close a {
+        color: #7ea1bf;
+    }
+
+    #navBarContainer div::after {
+        display: none;
+    }
+    #links {
+        display: none;
+        position: absolute;
+        top: 0;
+        height: 900px;
+        background-color: rgba(235, 239, 242, 0.95);
+        flex-direction: column;
+    }
+
+    #links {
+        gap: 20px;
+    }
+    #links a {
+        cursor: pointer;
+    }
+    #navBarContainer div a:first-child {
+        padding-left: 20px;
+    }
+    #intro {
+        height: 80vh;
+    }
 }
 
-#arrowDown{
- display: flex;
- justify-content: flex-end;
- margin-bottom: 10px;
- cursor: pointer;
+#arrowDown {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    
 }
 
 /** Footer **/
 
-footer{
+footer {
     padding: 5px;
-    background-color: #9FB0BF;
+    background-color: #9fb0bf;
     text-align: center;
 }
 
-footer h5{
+footer h5 {
     font-weight: 400;
 }

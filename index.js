@@ -48,7 +48,6 @@ document.getElementById("nextIcon").addEventListener('click', () => {
         document.getElementById(++thirdProject).style.display = "flex";
         thirdProject + 1;
     } else if (currentProject < numberProject - 1 && window.innerWidth < 800) {
-        console.log("yess");
         document.getElementById(currentProject).style.display = "none";
         document.getElementById(++currentProject).style.display = "flex";
         currentProject + 1;
@@ -66,20 +65,20 @@ window.addEventListener("scroll", (event) => {
 const sections = document.querySelectorAll("section");
 const navLi = document.querySelectorAll("#navBarContainer div a");
     let scroll = this.scrollY;
-    if (scroll > 0) {
-        document.getElementById("logo").style.display = "block";
-    }else{
-        document.getElementById("logo").style.display = "none";
-
+    if(window.innerWidth > 800){
+        if (scroll > 0) {
+            document.getElementById("logo").style.display = "block";
+        }else{
+            document.getElementById("logo").style.display = "none";
+    
+        }
     }
-
+    
     let current = "";
 
     sections.forEach((section) => {
         const sectionTop = section.offsetTop;
-        console.log(sectionTop);
-        console.log(pageYOffset);
-        if (pageYOffset >= sectionTop) {
+        if (pageYOffset >= sectionTop - 60) {
             current = section.getAttribute("id");
         }
     });
@@ -91,8 +90,30 @@ const navLi = document.querySelectorAll("#navBarContainer div a");
         }
     });
 });
+document.getElementById("bars").addEventListener('click', ()=>{
+ document.getElementById("links").style.display="flex";
+ document.getElementById("bars").style.display="none";
 
-document.getElementById("arrowDown").addEventListener('click', (event) =>{
- event.pageY = 0;     
 })
 
+document.getElementById("close").addEventListener('click', ()=>{
+    document.getElementById("links").style.display="none";
+    document.getElementById("bars").style.display="block";
+
+   })
+
+document.getElementById("arrowDown").addEventListener('click', () =>{
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+ })
+
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("arrowDown").style.display = "block";
+    } else {
+        document.getElementById("arrowDown").style.display = "none";
+    }
+  }
